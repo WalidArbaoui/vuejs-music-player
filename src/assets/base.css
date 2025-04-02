@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-main: #d63d41;
+
+  --color-secondary: #53373c;
+
+  --color-tertiary: #eb5732;
+
+  --color-gray-dark: #201f18;
+  --color-gray-light: #232526;
+  --color-gray-lighter: #393b3c;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  color: #fdfdfd;
+}
