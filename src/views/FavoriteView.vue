@@ -1,26 +1,24 @@
 <script setup lang="ts">
-import { useMusicPlayerStore } from '@/stores/player'
-import { useTrackFetch } from '@/composables/useTracks'
-import { onMounted } from 'vue'
-import AlbumHome from '@/components/albums/AlbumHome.vue'
 import MusicList from '@/components/music/MusicList.vue'
 import Player from '@/components/Player.vue'
+import { useTrackFetch } from '@/composables/useTracks'
+import { useMusicPlayerStore } from '@/stores/player'
+import { onMounted } from 'vue'
 
 const musicPlayerStore = useMusicPlayerStore()
 const { tracks, error, loading, fetchTracks } = useTrackFetch()
+
 onMounted(async () => {
-  await fetchTracks()
+  await fetchTracks(true)
   musicPlayerStore.addTracksToPlaylist(tracks.value)
 })
 </script>
 
 <template>
-  <div class="p-4">
-    <AlbumHome />
-    <div class="mt-4">
-      <h3 class="text-gray-400">All Tracks</h3>
+  <div class="h-full flex flex-col justify-between">
+    <div class="p-4">
       <MusicList :tracks="tracks" />
     </div>
+    <Player />
   </div>
-  <Player />
 </template>

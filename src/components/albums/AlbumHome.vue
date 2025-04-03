@@ -1,30 +1,21 @@
 <script setup lang="ts">
+import { useAlbumFetch } from '@/composables/useAlbums'
 import AlbumItem from './AlbumItem.vue'
 import { Icon } from '@iconify/vue'
+import { onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
 
-const fakeAlbums = [
-  {
-    img: 'Squid_-_Cowards.jpg',
-    title: 'Cowards',
-    author: 'Squid',
-    year: 2025,
-  },
-  {
-    img: 'Kind_of_Blue_(1959,_CL_1355)_album_cover.jpg',
-    title: 'Kind of Blue',
-    author: 'Miles Davis',
-    year: 1959,
-  },
-  { img: 'Capture.PNG', title: 'To Pimp a Butterfly', author: 'Kendrick Lamar', year: 2015 },
-  { img: 'Beatles_-_Abbey_Road.jpg', title: 'Abbey Road', author: 'The Beatles', year: 1969 },
-  { img: 'Radioheadkida.png', title: 'Kid A', author: 'Radiohead', year: 2000 },
-]
+const { albums, fetchAlbums } = useAlbumFetch()
+
+onMounted(() => {
+  fetchAlbums()
+})
 </script>
 
 <template>
   <div class="grid grid-cols-6 gap-2">
     <AlbumItem
-      v-for="album in fakeAlbums"
+      v-for="album in albums.slice(0, 5)"
       :img="`${album.img}`"
       :title="album.title"
       :author="album.author"

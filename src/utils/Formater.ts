@@ -1,9 +1,8 @@
 export const secondsSeparator = (time: number = 0) => {
-  console.log('####### Length', time)
   const minutes = Math.floor(time / 60)
-  console.log('####### minutes', minutes)
-  const seconds = time - minutes * 60
+  const seconds = Math.trunc(time - minutes * 60)
   const hours = Math.floor(time / 3600)
+  const str = `${hours > 0 ? `${hours < 10 ? '0' : ''}${hours}:` : ''}${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
 
-  return [seconds, minutes, hours]
+  return str
 }
