@@ -2,6 +2,6 @@ export interface AlbumType {
   id: number
   img: string
   title: string
-  author: string
+  artist: string
   year: number
 }

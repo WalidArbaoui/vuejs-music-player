@@ -9,8 +9,9 @@ defineProps<{ albums: AlbumType[] }>()
   <ul>
     <li v-for="album in albums">
       <AlbumItemFull
+        :id="album.id"
         :img="album.img"
-        :author="album.author"
+        :artist="album.artist"
         :year="album.year"
         :title="album.title"
       />

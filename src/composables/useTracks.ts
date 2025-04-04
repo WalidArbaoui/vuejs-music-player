@@ -21,9 +21,11 @@ export function useTrackFetch() {
     }
   }
 
-  const fetchTracksByAlbum = async (album = '') => {
+  const fetchTracksByAlbum = async (albumId: number) => {
     try {
-      const response = await fetch(`http://localhost:3000/tracks${album ? `?album=${album}` : ''}`)
+      const response = await fetch(
+        `http://localhost:3000/tracks${albumId ? `?albumId=${albumId}` : ''}`,
+      )
       if (!response.ok) {
         throw new Error(`Failed to fetch tracks: ${response.statusText}`)
       }
@@ -35,6 +37,23 @@ export function useTrackFetch() {
       loading.value = false
     }
   }
+
+  // const fetchTracksByPlaylist = async (playlist: number) => {
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:3000/tracks${album ? `?playlists_like=${playlist}` : ''}`,
+  //     )
+  //     if (!response.ok) {
+  //       throw new Error(`Failed to fetch tracks: ${response.statusText}`)
+  //     }
+  //     const data = await response.json()
+  //     tracks.value = data || []
+  //   } catch (err: any) {
+  //     error.value = err.message
+  //   } finally {
+  //     loading.value = false
+  //   }
+  // }
 
   const updateTrackFav = async (trackId: number, isFav: boolean = false) => {
     try {

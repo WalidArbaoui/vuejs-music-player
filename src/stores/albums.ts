@@ -2,11 +2,11 @@ import { defineStore } from 'pinia'
 
 export const useAlbumsStore = defineStore('albumsStore', {
   state: () => ({
-    currentAlbum: null as string | null,
+    currentAlbum: 0 as number,
   }),
   actions: {
-    updateCurrentAlbum(album: string) {
-      this.currentAlbum = album
+    updateCurrentAlbum(albumId: number) {
+      this.currentAlbum = albumId
     },
   },
 })

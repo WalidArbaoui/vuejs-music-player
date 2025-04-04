@@ -39,7 +39,7 @@ onMounted(() => {
     <div class="p-4">
       <MusicList :tracks="tracks" />
     </div>
-    <div class="bg-gray-dark p-4 h-full">
+    <div class="bg-gray-dark p-4 h-full rounded-tl-4xl">
       <AlbumList :albums="albums" />
     </div>
   </div>

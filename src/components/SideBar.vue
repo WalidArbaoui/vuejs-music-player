@@ -27,7 +27,7 @@ import { RouterLink } from 'vue-router'
           </RouterLink>
         </li>
         <li class="">
-          <RouterLink to="/" class="flex gap-4 rounded-md p-2">
+          <RouterLink to="/playlists" class="flex gap-4 rounded-md p-2" active-class="bg-main">
             <Icon icon="solar:playlist-bold-duotone" width="24" height="24" />
             playlists
           </RouterLink>

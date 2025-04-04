@@ -42,7 +42,7 @@ const playTrack = (track: TrackType) => musicPlayerStore.playTrack(track)
     </td>
     <td>
       <h2 class="text-lg">{{ track?.title }}</h2>
-      <span class="text-gray-400">{{ track?.author }}</span>
+      <span class="text-gray-400">{{ track?.artist }}</span>
     </td>
     <td>
       <span class="text-gray-400">

@@ -16,9 +16,10 @@ onMounted(() => {
   <div class="grid grid-cols-6 gap-2">
     <AlbumItem
       v-for="album in albums.slice(0, 5)"
+      :id="album.id"
       :img="`${album.img}`"
       :title="album.title"
-      :author="album.author"
+      :artist="album.artist"
       :year="album.year"
     />
     <RouterLink

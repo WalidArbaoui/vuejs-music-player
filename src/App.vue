@@ -7,7 +7,7 @@ import Header from './components/Header.vue'
 <template>
   <SideBar />
   <Header />
-  <main class="bg-gray-light relative flex flex-col">
+  <main class="bg-gray-light relative flex flex-col overflow-y-scroll">
     <RouterView />
   </main>
 </template>
